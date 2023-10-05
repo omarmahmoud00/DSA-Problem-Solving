@@ -1,0 +1,24 @@
+class Solution {
+    public int strStr(String haystack, String needle) {
+        int haystackSize = haystack.length();
+        int needleSize = needle.length();
+        if(needleSize>haystackSize) return -1;
+
+        if(haystackSize==needleSize){
+            if(haystack.equals(needle)) return 0;
+            else return -1;
+        }
+
+        int index =-1;
+        int i = 0;
+        while(i<haystackSize && ((i+needleSize-1)<haystackSize)){
+ 
+            if(haystack.substring(i,(needleSize+i)).equals(needle)) return i;
+ 
+
+            i++;
+        }
+
+        return -1;
+    }
+}
