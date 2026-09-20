@@ -1,0 +1,18 @@
+class Solution {
+    public void reverseString(char[] s) {
+        int n = s.length;
+        int mid = n / 2;
+        char temp = 0; 
+
+        applyReverse(s, n, mid, temp);
+    }
+
+    public char[] applyReverse(char[] s, int n, int mid, char temp) {
+        for (int i = 0; i < mid; i++) {
+            temp = s[i];
+            s[i] = s[n - 1 - i];
+            s[n - 1 - i] = temp;
+        }
+        return s;
+    }
+}

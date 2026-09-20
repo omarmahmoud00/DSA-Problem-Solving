@@ -1,0 +1,30 @@
+class Solution {
+    public int numIdenticalPairs(int[] nums) {
+        int size = nums.length;
+        if(size==0) return 0;
+        int[] pair = new int[size];
+        pair[0] = nums[0];
+        int numberOfPairs=0;
+        
+        for(int i = 1; i<size; i++){
+            int j =0;
+            while(j<size){
+                if(pair[j]==0) {
+                    pair[j]=nums[i];
+                    break;
+                    }
+                if(nums[i]==pair[j]) numberOfPairs++;
+
+
+                j++;
+            }
+
+        }
+        return numberOfPairs;
+
+
+
+
+
+    }
+}

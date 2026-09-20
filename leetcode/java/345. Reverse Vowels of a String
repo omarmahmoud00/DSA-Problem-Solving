@@ -1,0 +1,29 @@
+class Solution {
+    public String reverseVowels(String s) {
+        int length = s.length();
+        char[] vowels = {'a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'};
+        Stack<Character> stack = new Stack<>();
+        char[] chars = s.toCharArray(); 
+
+        for (int i = 0; i < length; i++) {
+            char ch = chars[i];
+            for (int j = 0; j < vowels.length; j++) {
+                if (ch == vowels[j]) {
+                    stack.push(ch);
+                    break;
+                }
+            }
+        }
+
+        for (int i = 0; i < length; i++) {
+            for (int j = 0; j < vowels.length; j++) {
+                if (chars[i] == vowels[j]) {
+                    chars[i] = stack.pop();
+                    break;
+                }
+            }
+        }
+
+        return new String(chars);
+    }
+}
