@@ -1,0 +1,30 @@
+class Solution {
+
+    /**
+     * @param Integer[] $nums
+     * @return Integer
+     */
+    function singleNumber($nums) {
+        $size = count($nums);
+        if($size<=1) return $nums[0];
+        $array = [];
+        for($i=0;$i<$size;$i++){
+            $this->checkAndSet($array,$nums[$i]);
+        }
+        // $size2= count($array);
+       foreach ($array as $key=> $value) {
+            if($value==1) return $key;
+            }
+         
+    }
+
+    private function checkAndSet(&$array,$num){
+        if (isset($array[$num])) {
+            $array[$num]++;
+        } else {
+            $array[$num] = 1;
+        }
+
+    }
+
+}
